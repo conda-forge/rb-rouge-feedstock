@@ -1,7 +1,7 @@
 About rb-rouge
 ==============
 
-Home: https://rubygems.orgs/gems/rouge
+Home: https://rubygems.org/gems/rouge
 
 Package license: MIT
 
