@@ -1,5 +1,5 @@
 {% set name = "rouge" %}
-{% set version = "3.10.0" %}
+{% set version = "3.11.0" %}
 
 package:
   name: rb-{{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://rubygems.org/downloads/{{ name }}-{{ version }}.gem
-  sha256: 1fb77d626871746e886fe3bc28812031950e01ac1753d2ef3c3b45fdd64e421e
+  sha256: abf9116b93fb32a3f59dbea3d82c4ede2d842a5132b842f1a56766bc94d95eff
 
 build:
   noarch: generic
