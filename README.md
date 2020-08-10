@@ -5,7 +5,7 @@ Home: https://rubygems.org/gems/rouge
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Lightweight and flexible library for writing command-line apps in Ruby.
 
