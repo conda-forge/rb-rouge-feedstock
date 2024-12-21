@@ -1,5 +1,5 @@
 {% set name = "rouge" %}
-{% set version = "3.16.0" %}
+{% set version = "4.5.1" %}
 
 package:
   name: rb-{{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://rubygems.org/downloads/{{ name }}-{{ version }}.gem
-  sha256: b12fe2e827c180af607574b3a950b287f85df134ce2e443bc184d0def8dc7ac7
+  sha256: 2ac81c6dee7019bbc6600d4c2d641d730d65c165941400ebd924259067e690dd
 
 build:
   noarch: generic
@@ -21,7 +21,7 @@ requirements:
   host:
     - ruby
   run:
-    - ruby
+    - {{ pin_compatible('ruby', max_pin='x.x') }}
 
 test:
   commands:
@@ -32,7 +32,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: {{ name }}-{{ version }}/LICENSE
-  summary: Lightweight and flexible library for writing command-line apps in Ruby.
+  summary: Rouge aims to a be a simple, easy-to-extend drop-in replacement for pygments.
 
   doc_url: http://www.rubydoc.info/gems/{{ name }}
   dev_url: https://github.com/rouge-ruby/{{ name }}
