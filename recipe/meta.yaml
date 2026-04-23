@@ -1,5 +1,5 @@
 {% set name = "rouge" %}
-{% set version = "3.16.0" %}
+{% set version = "3.18.0" %}
 
 package:
   name: rb-{{ name|lower }}
@@ -7,14 +7,13 @@ package:
 
 source:
   url: https://rubygems.org/downloads/{{ name }}-{{ version }}.gem
-  sha256: b12fe2e827c180af607574b3a950b287f85df134ce2e443bc184d0def8dc7ac7
+  sha256: 185be3e6266019cd6e6fcad1b78746ab371e22eb3c0caed902f80b25340530d9
 
 build:
   noarch: generic
   number: 0
   script:
-    - gem install -N -l -V --norc --ignore-dependencies {{ name }}-{{ version }}.gem
-      && gem unpack {{ name }}-{{ version }}.gem
+    - gem install -N -l -V --norc --ignore-dependencies {{ name }}-{{ version }}.gem && gem unpack {{ name }}-{{ version }}.gem
   skip: {{ win }}
 
 requirements:
