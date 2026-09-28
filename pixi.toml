@@ -1,0 +1,28 @@
+[workspace]
+name = "rb-rouge-feedstock"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+conda-smithy = ">=3.45"
+rattler-build = ">=0.47"
+
+[tasks.lint]
+cmd = "conda-smithy recipe-lint recipe"
+description = "Lint the conda recipe with conda-smithy"
+
+[tasks.render]
+cmd = "rattler-build build --recipe recipe --render-only --no-config --log-style plain"
+description = "Render and validate the recipe without building it"
+
+[tasks.build]
+cmd = "rattler-build build --recipe recipe --channel conda-forge --output-dir build_artifacts"
+description = "Build the package into build_artifacts"
+
+[tasks.rerender]
+cmd = "conda-smithy rerender"
+description = "Regenerate the feedstock CI configuration"
+
+[tasks.check]
+depends-on = ["lint", "render"]
+description = "Run all non-building validation checks"
