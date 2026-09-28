@@ -26,6 +26,11 @@ requirements:
     - ruby
 
 tests:
+  - package_contents:
+      files:
+        - share/rubygems/bin/rougify
+        - share/rubygems/gems/${{ name }}-${{ version }}/lib/${{ name }}.rb
+        - share/rubygems/specifications/${{ name }}-${{ version }}.gemspec
   - script:
       - ruby -r ${{ name }} -e 'exit 0'
 
@@ -41,3 +46,4 @@ extra:
   recipe-maintainers:
     - phreed
     - sodre
+    - abloemert
