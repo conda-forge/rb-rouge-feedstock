@@ -25,12 +25,6 @@ description = "Rerender the feedstock."
 [tasks.lint]
 cmd = "pixi exec --list='^conda-smithy$' conda-smithy lint --conda-forge recipe"
 description = "Lint the feedstock recipe"
-[tasks.render]
-cmd = "rattler-build build --recipe recipe --render-only --no-config --log-style plain"
-description = "Render and validate the recipe without building it"
-[tasks.check]
-depends-on = ["lint", "render"]
-description = "Run all non-building validation checks"
 
 [feature.build.dependencies]
 conda-build = ">=26.3"
@@ -41,8 +35,8 @@ rattler-build = "*"
 cmd = "inspect_artifacts --all-packages"
 description = "List contents of all packages found in rattler-build build directory."
 [feature.build.tasks.build]
-cmd = "rattler-build build --recipe recipe --output-dir build_artifacts"
-description = "Build rb-rouge-feedstock directly into build_artifacts, no particular variant specified"
+cmd = "rattler-build build --recipe recipe"
+description = "Build rb-rouge-feedstock directly (without setup scripts), no particular variant specified"
 [feature.build.tasks."build-linux_64_"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_.yaml "
 description = "Build rb-rouge-feedstock with variant linux_64_ directly (without setup scripts)"
