@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: rouge
+  version: 3.16.0
+
+package:
+  name: rb-${{ name | lower }}
+  version: ${{ version }}
+
+source:
+  url: https://rubygems.org/downloads/${{ name }}-${{ version }}.gem
+  sha256: b12fe2e827c180af607574b3a950b287f85df134ce2e443bc184d0def8dc7ac7
+
+build:
+  number: 0
+  noarch: generic
+  script:
+    - gem install -N -l -V --norc --ignore-dependencies ${{ name }}-${{ version }}.gem
+      && gem unpack ${{ name }}-${{ version }}.gem
+
+requirements:
+  host:
+    - ruby
+  run:
+    - ruby
+
+tests:
+  - package_contents:
+      files:
+        - share/rubygems/bin/rougify
+        - share/rubygems/gems/${{ name }}-${{ version }}/lib/${{ name }}.rb
+        - share/rubygems/specifications/${{ name }}-${{ version }}.gemspec
+  - script:
+      - ruby -r ${{ name }} -e 'exit 0'
+
+about:
+  homepage: https://rubygems.org/gems/${{ name }}
+  license: MIT
+  license_file: ${{ name }}-${{ version }}/LICENSE
+  summary: Lightweight and flexible library for writing command-line apps in Ruby.
+  documentation: http://www.rubydoc.info/gems/${{ name }}
+  repository: https://github.com/rouge-ruby/${{ name }}
+
+extra:
+  recipe-maintainers:
+    - phreed
+    - sodre
+    - abloemert
