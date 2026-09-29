@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: rouge
-  version: 3.16.0
+  version: "3.26.0"
 
 package:
   name: rb-${{ name | lower }}
@@ -10,14 +10,13 @@ package:
 
 source:
   url: https://rubygems.org/downloads/${{ name }}-${{ version }}.gem
-  sha256: b12fe2e827c180af607574b3a950b287f85df134ce2e443bc184d0def8dc7ac7
+  sha256: a3deb40ae6a07daf67ace188b32c63df04cffbe3c9067ef82495d41101188b2c
 
 build:
   number: 0
   noarch: generic
   script:
-    - gem install -N -l -V --norc --ignore-dependencies ${{ name }}-${{ version }}.gem
-      && gem unpack ${{ name }}-${{ version }}.gem
+    - gem install -N -l -V --norc --ignore-dependencies ${{ name }}-${{ version }}.gem && gem unpack ${{ name }}-${{ version }}.gem
 
 requirements:
   host:
