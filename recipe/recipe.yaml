@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: rouge
-  version: "4.1.2"
+  version: "4.6.1"
 
 package:
   name: rb-${{ name | lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://rubygems.org/downloads/${{ name }}-${{ version }}.gem
-  sha256: 3b4ca60e4ac6e36be2deb0359cba04278ba15bdd2b1fbbb66bbc19cae517d55f
+  sha256: 5075346d5797d6864be93f7adc75a16047a7dbfa572c63c502419ffa582c77de
 
 build:
   number: 0
